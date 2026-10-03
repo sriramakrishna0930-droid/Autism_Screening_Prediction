@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Autism Screening Prediction</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f6f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 600px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #cccccc;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333333;
+        }
+
+        p {
+            text-align: center;
+            color: #666666;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 12px;
+            background: #333333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #555555;
+        }
+
+        .note {
+            margin-top: 20px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Autism Screening Prediction</h1>
+
+    <p>Enter the screening information below.</p>
+
+    <form action="/predict" method="POST">
+
+        <label>Age</label>
+        <input type="number" name="age" min="1" max="100" required>
+
+        <label>Gender</label>
+        <select name="gender">
+            <option value="m">Male</option>
+            <option value="f">Female</option>
+        </select>
+
+        <label>A1 Score</label>
+        <select name="A1_Score">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+
+        <label>A2 Score</label>
+        <select name="A2_Score">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+
+        <label>A3 Score</label>
+        <select name="A3_Score">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+
+        <label>A4 Score</label>
+        <select name="A4_Score">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+
+        <label>A5 Score</label>
+        <select name="A5_Score">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+
+        <label>A6 Score</label>
+        <select name="A6_Score">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+
+        <label>A7 Score</label>
+        <select name="A7_Score">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+
+        <label>A8 Score</label>
+        <select name="A8_Score">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+
+        <label>A9 Score</label>
+        <select name="A9_Score">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+
+        <label>A10 Score</label>
+        <select name="A10_Score">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+
+        <button type="submit">Predict</button>
+
+    </form>
+
+    <p class="note">
+        This application is an academic screening project and
+        is not a medical diagnosis.
+    </p>
+
+</div>
+
+</body>
+</html>
