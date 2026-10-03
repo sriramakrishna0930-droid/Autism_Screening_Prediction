@@ -12,12 +12,13 @@
         }
 
         .container {
-            width: 600px;
-            margin: 50px auto;
+            width: 700px;
+            max-width: 90%;
+            margin: 40px auto;
             background: white;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px #cccccc;
+            border-radius: 12px;
+            box-shadow: 0 0 12px #cccccc;
         }
 
         h1 {
@@ -25,33 +26,56 @@
             color: #333333;
         }
 
-        p {
+        .intro {
             text-align: center;
             color: #666666;
+            margin-bottom: 30px;
         }
 
         label {
             display: block;
-            margin-top: 15px;
+            margin-top: 18px;
+            margin-bottom: 8px;
             font-weight: bold;
+            color: #333333;
         }
 
         input, select {
             width: 100%;
-            padding: 10px;
+            padding: 11px;
             margin-top: 5px;
             box-sizing: border-box;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .question {
+            margin-top: 25px;
+            padding: 18px;
+            background: #f8fafc;
+            border-left: 4px solid #333333;
+            border-radius: 6px;
+        }
+
+        .question label {
+            margin-top: 0;
+            line-height: 1.5;
+        }
+
+        .question select {
+            background: white;
         }
 
         button {
             width: 100%;
-            margin-top: 25px;
-            padding: 12px;
+            margin-top: 30px;
+            padding: 13px;
             background: #333333;
             color: white;
             border: none;
             border-radius: 5px;
-            font-size: 16px;
+            font-size: 17px;
             cursor: pointer;
         }
 
@@ -60,8 +84,18 @@
         }
 
         .note {
-            margin-top: 20px;
+            margin-top: 25px;
             font-size: 13px;
+            color: #777777;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .section-title {
+            margin-top: 25px;
+            color: #333333;
+            border-bottom: 1px solid #dddddd;
+            padding-bottom: 8px;
         }
     </style>
 </head>
@@ -72,86 +106,182 @@
 
     <h1>Autism Screening Prediction</h1>
 
-    <p>Enter the screening information below.</p>
+    <p class="intro">
+        Please answer the following screening questions.
+    </p>
 
     <form action="/predict" method="POST">
+
+        <h3 class="section-title">Basic Information</h3>
 
         <label>Age</label>
         <input type="number" name="age" min="1" max="100" required>
 
         <label>Gender</label>
-        <select name="gender">
+        <select name="gender" required>
             <option value="m">Male</option>
             <option value="f">Female</option>
         </select>
 
-        <label>A1 Score</label>
-        <select name="A1_Score">
-            <option value="0">No</option>
-            <option value="1">Yes</option>
-        </select>
 
-        <label>A2 Score</label>
-        <select name="A2_Score">
-            <option value="0">No</option>
-            <option value="1">Yes</option>
-        </select>
+        <h3 class="section-title">Screening Questions</h3>
 
-        <label>A3 Score</label>
-        <select name="A3_Score">
-            <option value="0">No</option>
-            <option value="1">Yes</option>
-        </select>
+        <!-- A1 -->
+        <div class="question">
+            <label>
+                A1. Do you often notice small sounds that other people do not notice?
+            </label>
 
-        <label>A4 Score</label>
-        <select name="A4_Score">
-            <option value="0">No</option>
-            <option value="1">Yes</option>
-        </select>
+            <select name="A1_Score" required>
+                <option value="1">Definitely Agree</option>
+                <option value="1">Slightly Agree</option>
+                <option value="0">Slightly Disagree</option>
+                <option value="0">Definitely Disagree</option>
+            </select>
+        </div>
 
-        <label>A5 Score</label>
-        <select name="A5_Score">
-            <option value="0">No</option>
-            <option value="1">Yes</option>
-        </select>
 
-        <label>A6 Score</label>
-        <select name="A6_Score">
-            <option value="0">No</option>
-            <option value="1">Yes</option>
-        </select>
+        <!-- A2 -->
+        <div class="question">
+            <label>
+                A2. Do you usually concentrate more on the overall picture than on small details?
+            </label>
 
-        <label>A7 Score</label>
-        <select name="A7_Score">
-            <option value="0">No</option>
-            <option value="1">Yes</option>
-        </select>
+            <select name="A2_Score" required>
+                <option value="0">Definitely Agree</option>
+                <option value="0">Slightly Agree</option>
+                <option value="1">Slightly Disagree</option>
+                <option value="1">Definitely Disagree</option>
+            </select>
+        </div>
 
-        <label>A8 Score</label>
-        <select name="A8_Score">
-            <option value="0">No</option>
-            <option value="1">Yes</option>
-        </select>
 
-        <label>A9 Score</label>
-        <select name="A9_Score">
-            <option value="0">No</option>
-            <option value="1">Yes</option>
-        </select>
+        <!-- A3 -->
+        <div class="question">
+            <label>
+                A3. Do you find it easy to do several things at the same time?
+            </label>
 
-        <label>A10 Score</label>
-        <select name="A10_Score">
-            <option value="0">No</option>
-            <option value="1">Yes</option>
-        </select>
+            <select name="A3_Score" required>
+                <option value="0">Definitely Agree</option>
+                <option value="0">Slightly Agree</option>
+                <option value="1">Slightly Disagree</option>
+                <option value="1">Definitely Disagree</option>
+            </select>
+        </div>
+
+
+        <!-- A4 -->
+        <div class="question">
+            <label>
+                A4. If something interrupts you, can you quickly return to what you were doing?
+            </label>
+
+            <select name="A4_Score" required>
+                <option value="0">Definitely Agree</option>
+                <option value="0">Slightly Agree</option>
+                <option value="1">Slightly Disagree</option>
+                <option value="1">Definitely Disagree</option>
+            </select>
+        </div>
+
+
+        <!-- A5 -->
+        <div class="question">
+            <label>
+                A5. Do you find it easy to understand meanings that people do not say directly?
+            </label>
+
+            <select name="A5_Score" required>
+                <option value="0">Definitely Agree</option>
+                <option value="0">Slightly Agree</option>
+                <option value="1">Slightly Disagree</option>
+                <option value="1">Definitely Disagree</option>
+            </select>
+        </div>
+
+
+        <!-- A6 -->
+        <div class="question">
+            <label>
+                A6. Can you tell when someone listening to you is becoming bored?
+            </label>
+
+            <select name="A6_Score" required>
+                <option value="0">Definitely Agree</option>
+                <option value="0">Slightly Agree</option>
+                <option value="1">Slightly Disagree</option>
+                <option value="1">Definitely Disagree</option>
+            </select>
+        </div>
+
+
+        <!-- A7 -->
+        <div class="question">
+            <label>
+                A7. When reading a story, do you find it difficult to understand what the characters intend to do?
+            </label>
+
+            <select name="A7_Score" required>
+                <option value="1">Definitely Agree</option>
+                <option value="1">Slightly Agree</option>
+                <option value="0">Slightly Disagree</option>
+                <option value="0">Definitely Disagree</option>
+            </select>
+        </div>
+
+
+        <!-- A8 -->
+        <div class="question">
+            <label>
+                A8. Do you like collecting information about categories such as cars, birds, trains, or plants?
+            </label>
+
+            <select name="A8_Score" required>
+                <option value="1">Definitely Agree</option>
+                <option value="1">Slightly Agree</option>
+                <option value="0">Slightly Disagree</option>
+                <option value="0">Definitely Disagree</option>
+            </select>
+        </div>
+
+
+        <!-- A9 -->
+        <div class="question">
+            <label>
+                A9. Can you easily work out what someone is thinking or feeling from their facial expression?
+            </label>
+
+            <select name="A9_Score" required>
+                <option value="0">Definitely Agree</option>
+                <option value="0">Slightly Agree</option>
+                <option value="1">Slightly Disagree</option>
+                <option value="1">Definitely Disagree</option>
+            </select>
+        </div>
+
+
+        <!-- A10 -->
+        <div class="question">
+            <label>
+                A10. Do you find it difficult to understand other people's intentions?
+            </label>
+
+            <select name="A10_Score" required>
+                <option value="1">Definitely Agree</option>
+                <option value="1">Slightly Agree</option>
+                <option value="0">Slightly Disagree</option>
+                <option value="0">Definitely Disagree</option>
+            </select>
+        </div>
+
 
         <button type="submit">Predict</button>
 
     </form>
 
     <p class="note">
-        This application is an academic screening project and
-        is not a medical diagnosis.
+        This application is an academic screening project and is not a medical diagnosis.
     </p>
 
 </div>
